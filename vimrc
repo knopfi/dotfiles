@@ -11,6 +11,8 @@ call vundle#begin()
 " let Vundle mange Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'tpope/vim-fugitive'
+Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 
 " Colors
@@ -41,34 +43,35 @@ set autoindent                          " Copy indent from current line
 set autoread                            " Read open files again when changed outside vim
 set autowrite                           " Write a modified buffer on each :next , ...
 set backspace=indent,eol,start          " Backspacing over everyhing in insert mode
+set expandtab                           " Make vim use spaces and not tabs
+set hidden                              " Don't unload the buffer when we switch between them. Saves undo history
 set history=500                         " Keep 200 lines of command line history
 set hlsearch                            " Highlight the last used search pattern
+set ignorecase                          " Ignore case when searching....
 set incsearch                           " Do incremental searching
+set laststatus=2                        " always show status bar
 set nobackup                            " Don't constantly write backup files
+set noshowmode                          " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set noswapfile                          " Ain't nobody got time for swap files
 set noerrorbells                        " Don't beep
+set nofoldenable
 set nowrap                              " Do not wrap lines
 set popt=left:8pc,right:3pc             " Print options
 set ruler
+set scrolloff=2                         " minimum lines above/below bar
+set shell=bash                          " Required to let zsh knwo how to run things on command line
 set shiftwidth=2                        " Number of spaces to use for each step of indent
+set showbreak=↪\
 set showcmd                             " Display incomplete commands in the bottom line of the screen
 set showmatch
-set ignorecase                          " Ignore case when searching....
+set synmaxcol=256
 set smartcase                           " ...unless uppercase letter are used
 set tabstop=2                           " Number of spaces that a <Tab> counts for
-set expandtab                           " Make vim use spaces and not tabs
 set undolevels=1000                     " Never can be too careful when it comes to undoing
-set hidden                              " Don't unload the buffer when we switch between them. Saves undo history
 set visualbell                          " Visual bell instead of beeping
 set wildignore=*.swp,*.bak,*.class,tmp/**,dist/**,node_modules/**
-set shell=bash                          " Required to let zsh knwo how to run things on command line
-set noshowmode                          " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-set showbreak=↪\
-set synmaxcol=256
-set scrolloff=3
 set clipboard=unnamed
 au BufNewFile,BufRead *.json set ft=javascript
-set nofoldenable
 
 
 au BufNewFile,BufRead *.txt setlocal nolist " Don't display whitespace
@@ -76,7 +79,7 @@ au BufNewFile,BufRead *.txt setlocal nolist " Don't display whitespace
 " Better? completion on command line
 set wildmenu
 " What to do when I press 'wildchar'. Worth tweaking to see what feels right.
-set wildmode=list:full
+set wildmode=list:longest,full
 
 " (Hopefully) removes the delay when hitting sec in insert mode
 set noesckeys
