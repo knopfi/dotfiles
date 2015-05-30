@@ -11,6 +11,8 @@ call vundle#begin()
 " let Vundle mange Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'kien/ctrlp.vim'
+
 " Colors
 Plugin 'nanotech/jellybeans.vim'
 
@@ -26,11 +28,19 @@ syntax on
 
 let mapleader = ","
 
+map <leader>vi :tabe ~/.vimrc<cr>
+
+" ctrlp config
+let g:ctrlp_map = '<leader>h'
+let g:ctrlp_max_height = 10
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_match_window_reversed = 0
+
 set autoindent                          " Copy indent from current line
 set autoread                            " Read open files again when changed outside vim
 set autowrite                           " Write a modified buffer on each :next , ...
 set backspace=indent,eol,start          " Backspacing over everyhing in insert mode
-set history=200                         " Keep 200 lines of command line history
+set history=500                         " Keep 200 lines of command line history
 set hlsearch                            " Highlight the last used search pattern
 set incsearch                           " Do incremental searching
 set nobackup                            " Don't constantly write backup files
@@ -38,8 +48,10 @@ set noswapfile                          " Ain't nobody got time for swap files
 set noerrorbells                        " Don't beep
 set nowrap                              " Do not wrap lines
 set popt=left:8pc,right:3pc             " Print options
+set ruler
 set shiftwidth=2                        " Number of spaces to use for each step of indent
 set showcmd                             " Display incomplete commands in the bottom line of the screen
+set showmatch
 set ignorecase                          " Ignore case when searching....
 set smartcase                           " ...unless uppercase letter are used
 set tabstop=2                           " Number of spaces that a <Tab> counts for
