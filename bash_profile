@@ -47,5 +47,4 @@ complete -W "NSGlobalDomain" defaults;
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
 #  Enable tab completion for todo.sh
-ln -s ~/.todo/todo.sh ~/bin/todo.sh
 source ~/.todo/todo_completion

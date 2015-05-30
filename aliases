@@ -15,7 +15,7 @@ alias g="git"
 alias h="history"
 alias j="jobs"
 
-alias t="~/.todo/todo.sh -d ~/.todo/todo.cfg"
+alias t="~/.bin/todo.sh -d ~/.todo/todo.cfg"
 complete -F _todo t
 
 # Detect which `ls` flavor is in use
@@ -142,3 +142,6 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+# YouTube mp3 download
+alias youtube-dl-mp3="torsocks youtube-dl --extract-audio --audio-format mp3 "
