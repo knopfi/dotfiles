@@ -14,14 +14,15 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 
 " Colors
-Plugin 'nanotech/jellybeans.vim'
+Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Use the colorscheme from above
-colorscheme jellybeans
+set background=dark
+colorscheme solarized
 
 " ========================================================================
 syntax on
