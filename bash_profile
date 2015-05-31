@@ -1,6 +1,16 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 
+if [ -n "$PS1" ];then   # shell is interactive?
+  # turn off TTY "start" and "stop" commands in all interactive shells.
+  # thy default to C-q and C-s, Bash uses C-s to do forward history search.
+  stty start ''
+  stty stop ''
+  stty -ixon  # disable XON/XOFF flow control
+  stty ixoff  # enable sending (to app) of start/stop characters
+  stty ixany  # let any character restart output, not only start character
+fi
+
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don't want to commit.

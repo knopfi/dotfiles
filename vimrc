@@ -33,6 +33,15 @@ let mapleader = ","
 
 map <leader>vi :tabe ~/.vimrc<cr>
 
+" Note that remapping C-s requires flow control to be disabled
+" (e.g. in .bashrc or .zshrc)
+map <C-s> <esc>:w<cr>
+imap <C-s> <esc>:w<cr>
+map <C-t> <esc>:tabnew<cr>
+map <C-x> <C-w>c
+map <C-n> :cn<cr>
+map <C-p> :cp<cr>
+
 " ctrlp config
 let g:ctrlp_map = '<leader>h'
 let g:ctrlp_max_height = 10
@@ -44,6 +53,7 @@ set autoread                            " Read open files again when changed out
 set autowrite                           " Write a modified buffer on each :next , ...
 set backspace=indent,eol,start          " Backspacing over everyhing in insert mode
 set expandtab                           " Make vim use spaces and not tabs
+set gdefault                            " assume the /g flag on :s substitutions to replace all matches in a line
 set hidden                              " Don't unload the buffer when we switch between them. Saves undo history
 set history=500                         " Keep 200 lines of command line history
 set hlsearch                            " Highlight the last used search pattern
@@ -54,10 +64,10 @@ set nobackup                            " Don't constantly write backup files
 set noshowmode                          " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set noswapfile                          " Ain't nobody got time for swap files
 set noerrorbells                        " Don't beep
-set nofoldenable
 set nowrap                              " Do not wrap lines
 set popt=left:8pc,right:3pc             " Print options
 set ruler
+set relativenumber
 set scrolloff=2                         " minimum lines above/below bar
 set shell=bash                          " Required to let zsh knwo how to run things on command line
 set shiftwidth=2                        " Number of spaces to use for each step of indent
@@ -73,6 +83,21 @@ set wildignore=*.swp,*.bak,*.class,tmp/**,dist/**,node_modules/**
 set clipboard=unnamed
 au BufNewFile,BufRead *.json set ft=javascript
 
+" Highlight the status line
+highlight StatusLine ctermfg=blue ctermbg=yellow
+
+set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
+
+set nofoldenable " Say no to code folding...
+
+command! Q q " Bind :Q to :q
+command! Qall qall
+command! QA qall
+command! E e
+
+
+" Disable Ex mode
+map Q <Nop>
 
 au BufNewFile,BufRead *.txt setlocal nolist " Don't display whitespace
 
