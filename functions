@@ -15,3 +15,8 @@ function calc() {
   fi;
   printf "\n";
 }
+
+# Colored svn diff
+function svndiff() {
+  svn diff $@ | view -
+}
