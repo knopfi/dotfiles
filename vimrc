@@ -24,6 +24,7 @@ filetype plugin indent on    " required
 
 " Use the colorscheme from above
 set background=dark
+"set background=light
 colorscheme solarized
 
 " ========================================================================
