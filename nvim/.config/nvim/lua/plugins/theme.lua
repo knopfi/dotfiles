@@ -1,0 +1,1 @@
+/home/petkno/.config/omarchy/current/theme/neovim.lua
